@@ -14,59 +14,66 @@
         android:text="text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/textView" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="button4"
+        android:id="@+id/button4"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/addQ"
+        android:layout_marginEnd="10dp" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="button3"
+        android:id="@+id/button3"
+        android:layout_above="@+id/button4"
+        android:layout_alignStart="@+id/button4" />
 
     <Button
         android:text="Magic!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="117dp"
         android:id="@+id/button"
         android:onClick="button1"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_marginTop="45dp"
-        android:onClick="button3"
-        android:id="@+id/button3" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button3"
-        android:layout_alignStart="@+id/button2"
-        android:onClick="button4"
-        android:id="@+id/button4" />
+        android:layout_above="@+id/button4"
+        android:layout_alignStart="@+id/button3"
+        android:layout_marginBottom="65dp" />
 
     <Button
         android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
-        android:layout_toEndOf="@+id/textView"
         android:onClick="button2"
-        android:layout_marginStart="23dp" />
+        android:layout_below="@+id/button4"
+        android:layout_alignStart="@+id/button4"
+        android:layout_marginTop="19dp" />
+
+    <Button
+        android:text="Add Question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addQ"
+        android:onClick="addQ"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="50dp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
         android:id="@+id/textView2" />
+
 </RelativeLayout>

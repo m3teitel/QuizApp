@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_new_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mike.quizapp.AddNewQuestion">
+
+    <TextView
+        android:text="Enter the Question + Answers Below:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:textSize="18dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="19dp"
+        android:id="@+id/question"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:hint="Question" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="33dp"
+        android:id="@+id/answerText1"
+        android:layout_below="@+id/question"
+        android:layout_alignStart="@+id/question"
+        android:hint="Answer 1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="33dp"
+        android:id="@+id/answerText2"
+        android:layout_below="@+id/answerText1"
+        android:layout_alignStart="@+id/answerText1"
+        android:hint="Answer 2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="38dp"
+        android:id="@+id/answerText3"
+        android:layout_below="@+id/answerText2"
+        android:layout_alignStart="@+id/answerText2"
+        android:hint="Answer 3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/answerText4"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/answerText3"
+        android:layout_alignStart="@+id/answerText3"
+        android:hint="Answer 4" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/answerText1"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton1"
+            android:layout_weight="1"
+            android:layout_alignBaseline="@+id/answerText1"
+            android:layout_alignBottom="@+id/answerText1"
+            android:layout_alignEnd="@+id/question"
+            android:layout_marginBottom="50dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton2"
+            android:layout_weight="1"
+            android:layout_marginBottom="45dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton3"
+            android:layout_weight="1"
+            android:layout_marginBottom="45dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton4"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <Button
+        android:text="Set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerText4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/setQustion"
+        android:onClick="setText" />
+
+</RelativeLayout>

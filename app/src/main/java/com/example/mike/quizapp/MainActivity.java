@@ -1,21 +1,33 @@
 package com.example.mike.quizapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 public class MainActivity extends AppCompatActivity {
-    TextView question, response;
-    Button choice1, choice2, choice3, choice4;
-    Question q1;
+    private TextView question, response;
+    private  Button choice1, choice2, choice3, choice4;
+    private Question q1;
+    private String strQ;
+    private final int SET_QUESTION = 1;
+    public static final String EXTRA_MESSAGE = "com.example.mike.quizapp";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         q1 = new Question("Press 2", "1", false, "2", true, "3", false, "4", false);
         setAllText();
+        readFile();
     }
    public void button1(View v){
         response = (TextView) findViewById(R.id.textView2);
@@ -56,5 +68,61 @@ public class MainActivity extends AppCompatActivity {
         choice3.setText(q1.getAnswer(2));
         choice4 = (Button) findViewById(R.id.button4);
         choice4.setText(q1.getAnswer(3));
+    }
+    public void setQ(String q, String an1, Boolean a1r, String an2, Boolean a2r,String an3, Boolean a3r,String an4, Boolean a4r){
+        q1 = new Question(q, an1, a1r, an2, a2r, an3, a3r, an4, a4r);
+    }
+    public void addQ(View view){
+        Intent intent = new Intent(this, AddNewQuestion.class);
+        startActivityForResult(intent, SET_QUESTION);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SET_QUESTION){
+            if(resultCode == RESULT_OK){
+                strQ = data.getStringExtra("newQ");
+                putNewQ();
+            }
+        }
+    }
+    public void putNewQ(){
+        String[] strA = strQ.split("\\|");
+        String ques = strA[0];
+        String a1 = strA[1];
+        boolean a1r = Boolean.parseBoolean(strA[2]);
+        String a2 = strA[3];
+        boolean a2r = Boolean.parseBoolean(strA[4]);
+        String a3 = strA[5];
+        boolean a3r = Boolean.parseBoolean(strA[6]);
+        String a4 = strA[7];
+        boolean a4r = Boolean.parseBoolean(strA[8]);
+        q1 = new Question(ques, a1, a1r, a2, a2r, a3, a3r, a4, a4r);
+        writeFile();
+        setAllText();
+    }
+    public void readFile(){
+        try {
+            FileReader fr = new FileReader(new File(this.getFilesDir(), "Question.quiz"));
+            BufferedReader br = new BufferedReader(fr);
+            strQ = br.readLine();
+            putNewQ();
+            fr.close();
+            br.close();
+        } catch (Exception e){
+            Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+    public void writeFile(){
+        try{
+            FileWriter fw = new FileWriter(new File(this.getFilesDir(), "Question.quiz"));
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(strQ);
+            bw.close();
+            fw.close();
+        } catch (Exception e){
+            Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }
