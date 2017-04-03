@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.google.gson.Gson;
+
+import java.io.Serializable;
+
 public class AddNewQuestion extends AppCompatActivity {
 
     private EditText question, answer1, answer2, answer3, answer4;
@@ -28,16 +32,18 @@ public class AddNewQuestion extends AppCompatActivity {
         r4 = (RadioButton) findViewById(R.id.radioButton4);
     }
     public void setText(View view){
+        Gson gson = new Gson();
         String ques = question.getText().toString();
         String a1 = answer1.getText().toString();
-        String a1r = "" + r1.isChecked();
+        boolean a1r = r1.isChecked();
         String a2 = answer2.getText().toString();
-        String a2r = "" + r2.isChecked();
+        boolean a2r = r2.isChecked();
         String a3 = answer3.getText().toString();
-        String a3r = "" + r3.isChecked();
+        boolean a3r = r3.isChecked();
         String a4 = answer4.getText().toString();
-        String a4r = "" + r4.isChecked();
-        String str = ques + "|" + a1 + "|" + a1r + "|" + a2 + "|" + a2r + "|" + a3 + "|" + a3r + "|" + a4 + "|" + a4r;
+        boolean a4r = r4.isChecked();
+        q = new Question(ques ,a1 ,a1r,a2 ,a2r ,a3 ,a3r,a4,a4r);
+        String str = gson.toJson(q);
         Intent intent = new Intent();
         intent.putExtra("newQ", str);
         setResult(RESULT_OK, intent);

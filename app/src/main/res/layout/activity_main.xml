@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mike.quizapp.MainActivity">
 
     <TextView
-        android:text="text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="Question"
+        android:layout_width="331dp"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textAlignment="textStart"
+        android:layout_height="69dp"
+        android:elevation="1dp"
+        android:textColor="?android:attr/textColorPrimary"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        android:layout_marginStart="24dp"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:text="Button"
@@ -24,9 +36,12 @@
         android:layout_height="wrap_content"
         android:onClick="button4"
         android:id="@+id/button4"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/addQ"
-        android:layout_marginEnd="10dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button3" />
 
     <Button
         android:text="Button"
@@ -34,8 +49,15 @@
         android:layout_height="wrap_content"
         android:onClick="button3"
         android:id="@+id/button3"
-        android:layout_above="@+id/button4"
-        android:layout_alignStart="@+id/button4" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:text="Magic!"
@@ -43,9 +65,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:onClick="button1"
-        android:layout_above="@+id/button4"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginBottom="65dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button2"
+        android:layout_marginTop="157dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:text="Button"
@@ -53,27 +79,64 @@
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:onClick="button2"
-        android:layout_below="@+id/button4"
-        android:layout_alignStart="@+id/button4"
-        android:layout_marginTop="19dp" />
-
-    <Button
-        android:text="Add Question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addQ"
-        android:onClick="addQ"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/button3"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/button3" />
 
     <TextView
-        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:text="Right/Wrong"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/addQ"
+        android:layout_marginStart="133dp"
+        android:layout_marginEnd="133dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textView" />
 
-</RelativeLayout>
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="603dp"
+        android:id="@+id/guideline"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="42dp"
+        app:layout_constraintGuide_begin="42dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="20dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:id="@+id/addQ"
+        android:onClick="addQ"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp" />
+
+</android.support.constraint.ConstraintLayout>

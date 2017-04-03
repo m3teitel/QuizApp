@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,11 +22,13 @@ public class MainActivity extends AppCompatActivity {
     private Question q1;
     private String strQ;
     private final int SET_QUESTION = 1;
+    private Gson gson;
     public static final String EXTRA_MESSAGE = "com.example.mike.quizapp";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        gson = new Gson();
         q1 = new Question("Press 2", "1", false, "2", true, "3", false, "4", false);
         setAllText();
         readFile();
@@ -86,17 +90,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void putNewQ(){
-        String[] strA = strQ.split("\\|");
-        String ques = strA[0];
-        String a1 = strA[1];
-        boolean a1r = Boolean.parseBoolean(strA[2]);
-        String a2 = strA[3];
-        boolean a2r = Boolean.parseBoolean(strA[4]);
-        String a3 = strA[5];
-        boolean a3r = Boolean.parseBoolean(strA[6]);
-        String a4 = strA[7];
-        boolean a4r = Boolean.parseBoolean(strA[8]);
-        q1 = new Question(ques, a1, a1r, a2, a2r, a3, a3r, a4, a4r);
+        q1 = gson.fromJson(strQ, Question.class);
         writeFile();
         setAllText();
     }
